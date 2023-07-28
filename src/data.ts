@@ -1,3 +1,5 @@
+import { IEvents } from "./interfaces/IData";
+
 // precisa rever gastos para bater com dispesa real
 const gastos = {
   estagiario: [
@@ -135,7 +137,7 @@ const gastos = {
   ],
 }
 
-const events = [
+const events: IEvents[] = [
   {
     text: `Você foi convidado para um happy hour com seus colegas de trabalho, porém eles pretendem sair para comer em um restaurante caro, você decide ir com eles e gastar 150 coins?`,
     accept: { lost: {type: "coin", value: -150 }, benefit: { type: "felicidade", value: +30 } },

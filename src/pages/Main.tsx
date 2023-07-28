@@ -1,10 +1,13 @@
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import style from "../styles/Main.module.css"
 import ProgressBar from '../componentes/ProgressBar';
 import money from "../icons/—Pngtree—pixel art coin icon design_8529397.png"
 import creditCard from "../icons/pixelArtCard-removebg.png"
 import player from "../icons/player.png"
 import PopUp from '../componentes/PopUp';
+import data from "../data"
+import shuffleArray from '../uteis/SufleArray';
+import { IEvents } from '../interfaces/IData';
 
 interface IAction {
   value: number,
@@ -25,7 +28,9 @@ interface IEvent {
 }
 
 function Main() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
+  const [events, setEvents] = useState([]  as IEvents[])
+  const [currentEvent, setCurrentEvent] = useState(0)
   
   const inicialState = {
     felicidade: 100,
@@ -52,12 +57,11 @@ function Main() {
 
     const [pontos, dispatch] = useReducer(reducer, inicialState)
 
-    const array = [
-      { text: "Você foi convidado para um happy hour com seus colegas de trabalho, porém eles pretendem sair para comer em um restaurante caro, você decide ir com eles, ou prefere ir direto para casa?",
-        accept: { lost: {type: "coin", value: -150 }, benefit: { type: "felicidade", value: 30 } },
-        denied: { lost: {type: "felicidade", value: -10 }, benefit: {} }
-      }
-    ]
+    useEffect(() => {
+      const newEvents = shuffleArray(data.events)
+      setEvents(newEvents)
+      setIsOpen(true)
+    }, []) 
 
     const awnserEvent = (obj: IEvent) => {
       for (const key in obj) {
@@ -65,6 +69,9 @@ function Main() {
         if (type !== undefined && value !== undefined) {
           dispatch({ type, value });
         }
+      }
+      if(currentEvent < events.length) {
+        setCurrentEvent((prevValue) => prevValue + 1)
       }
       setIsOpen(false)
     };
@@ -88,19 +95,19 @@ function Main() {
             </header>
             <img src={player} alt="" />
             {isOpen && <PopUp>
-              <p style={{fontSize: "1.5rem", textAlign: "start"}}>{array[0].text}</p>
+              <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
               <br />
               <span className={style.buttonsContainer}>
                 <button 
                   className={style.button} 
                   style={{background: "#2DD46C", color: "white"}} 
-                  onClick={() => awnserEvent(array[0].accept)}>
+                  onClick={() => awnserEvent(events[currentEvent].accept)}>
                   sim
                 </button>
                 <button 
                   className={style.button} 
                   style={{background: "red", color: "white"}}
-                  onClick={() => awnserEvent(array[0].denied)}>
+                  onClick={() => awnserEvent(events[currentEvent].denied)}>
                   não
                 </button>
               </span>
