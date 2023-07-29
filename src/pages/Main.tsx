@@ -15,17 +15,33 @@ interface IEvent {
 }
 
 function Main() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const {dispatch, setEvents, events, currentEvent, setCurrentEvent, day } = useContext(GameContext)
+  const [showPopUp, setShowPopUp] = useState(false);
 
-  const {dispatch, setEvents, events, currentEvent, setCurrentEvent} = useContext(GameContext)
-  
-    useEffect(() => {
-      if (events.length === 0) {
-        const newEvents = shuffleArray(data.events)
-        setEvents(newEvents)
-        setIsOpen(true)
-      }
-    }, []) 
+  const showPopupHandler = () => setShowPopUp(true);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+    setShowPopUp(false);
+  }, 5000);
+    return () => clearTimeout(timer);
+  }, [showPopUp]);
+
+  useEffect(() => {
+    if(day === 1) {
+      showPopupHandler();
+    }
+  }, [day]);
+
+  useEffect(() => {
+    if (events.length === 0) {
+      const newEvents = shuffleArray(data.events)
+      setEvents(newEvents)
+      setIsOpen(true)
+    }
+  }, []);
 
     const awnserEvent = (obj: IEvent) => {
       for (const key in obj) {
@@ -42,28 +58,32 @@ function Main() {
     
 
     return (
-        <main className={style.main} >
-            <Header />
-            <img src={player} alt="Seu personagem" />
-            {isOpen && <PopUp>
-              <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
-              <br />
-              <span className={style.buttonsContainer}>
-                <button 
-                  className={style.button} 
-                  style={{background: "#2DD46C", color: "white"}} 
-                  onClick={() => awnserEvent(events[currentEvent].accept)}>
-                  sim
-                </button>
-                <button 
-                  className={style.button} 
-                  style={{background: "red", color: "white"}}
-                  onClick={() => awnserEvent(events[currentEvent].denied)}>
-                  não
-                </button>
-              </span>
-              </PopUp>}
-        </main>
+      <>
+      <Header />
+      <main className={style.main} >
+        { showPopUp ?
+        <Budget />  : null }
+          <img src={player} alt="Seu personagem" />
+          {isOpen && <PopUp>
+            <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
+            <br />
+            <span className={style.buttonsContainer}>
+              <button 
+                className={style.button} 
+                style={{background: "#2DD46C", color: "white"}} 
+                onClick={() => awnserEvent(events[currentEvent].accept)}>
+                sim
+              </button>
+              <button 
+                className={style.button} 
+                style={{background: "red", color: "white"}}
+                onClick={() => awnserEvent(events[currentEvent].denied)}>
+                não
+              </button>
+            </span>
+            </PopUp>}
+      </main>
+      </>
     );
 }
 

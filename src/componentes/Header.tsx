@@ -4,6 +4,7 @@ import { GameContext } from '../context/GameContext';
 import ProgressBar from './ProgressBar';
 import wallet from "../icons/wallet-removebg.png"
 import { useNavigate } from 'react-router-dom';
+import Chronometer from '../pages/Chronometer';
 // import PopUp from './PopUp';
 
 function Header() {
@@ -24,11 +25,12 @@ function Header() {
                 <span className={style.iconContainer}>
                   <img 
                     src={wallet} 
-                    alt="cartão de credito" 
+                    alt="carteira" 
                     className={style.icon} 
                     onClick={() => navigate("/wallet")}
                   />
                   <p>R$: {pontos.coin}</p>
+                  <Chronometer/>
                 </span>
               </span>
         </header>

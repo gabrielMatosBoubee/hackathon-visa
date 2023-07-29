@@ -45,6 +45,8 @@ const GameContext =  createContext<{
     currentEvent: number;
     setCurrentEvent: React.Dispatch<React.SetStateAction<number>>;
     dispatch: React.Dispatch<IAction>;
+    day: number;
+    setDay: React.Dispatch<React.SetStateAction<number>>;
   }>({
     pontos: initialState,
     events: [], // Inicialmente, o array de eventos está vazio
@@ -52,15 +54,18 @@ const GameContext =  createContext<{
     currentEvent: 0, // Inicialmente, o índice do evento atual é 0
     setCurrentEvent: () => undefined,
     dispatch: () => undefined,
+    day: 1,
+    setDay: () => undefined,
   });
 
 const GameProvider = ({ children }: ComponentProps) => {
   const [pontos, dispatch] = useReducer(reducer, initialState);
-  const [events, setEvents] = useState([]  as IEvents[])
-  const [currentEvent, setCurrentEvent] = useState(0)
+  const [events, setEvents] = useState([]  as IEvents[]);
+  const [currentEvent, setCurrentEvent] = useState(0);
+  const [day, setDay] = useState(1);
 
   return (
-    <GameContext.Provider value={{ pontos, dispatch, events, setEvents, currentEvent, setCurrentEvent }}>
+    <GameContext.Provider value={{ day, setDay, pontos, dispatch, events, setEvents, currentEvent, setCurrentEvent }}>
       {children}
     </GameContext.Provider>
   );

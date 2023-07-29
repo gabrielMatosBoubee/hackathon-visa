@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { GameContext } from '../context/GameContext';
 
 function Chronometer() {
   const [time, setTime] = useState(0);
-  const [day, setDay] = useState(1);
-  const dayDuration = 10;
+  const { day, setDay } = useContext(GameContext);
+  const dayDuration = 60;
+  const monthDuration = 30;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,13 +19,17 @@ function Chronometer() {
     if(time >= dayDuration) {
       setTime(0)
       setDay((prevDay) => prevDay + 1)
+      if(day > monthDuration) {
+        setDay(1)
+      }
     }
-  }, [time]);
+  }, [time, day]);
+
 
   return (
     <div className="Chronometer">
-      <h1>Dia: {day} </h1>
-      <h2>Timer: {time} segundos</h2>
+      <h1>Dia: { day } </h1>
+      <h2>Timer: { time } segundos</h2>
     </div>
   );
 }
