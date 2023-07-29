@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { consumiveis } from '../data';
 import Layout from '../componentes/Layout';
 import { GameContext } from '../context/GameContext';
+import style from '../styles/Consumiveis.module.css'
 
 type TConsumiveis = {
 	name: string;
@@ -40,15 +41,17 @@ function Consumives() {
 
 	return (
 		<Layout>
-			<div> 
-				{filters.map((f) => <button onClick={() => filterConsumiveis(f as TFiltros)}> { f } </button>)}
+			<div className={style.consumiveisFilter}> 
+				{filters.map((f) => <button key={ f } onClick={() => filterConsumiveis(f as TFiltros)}> { f } </button>)}
 				<button onClick={() => filterConsumiveis('todos')}> Todos os produtos</button>
 			</div>
-			<div>
+			<div className={ style.consumiveisItens }>
 			{ filtered.map((product: TConsumiveis) => (
-				<button onClick={ () => handleAction({ benefit: product.benefit, lost: product.lost, value: product.value }) }>
+				<button 
+				key={ product.name }
+				onClick={ () => handleAction({ benefit: product.benefit, lost: product.lost, value: product.value }) }>
 					<p> { product.name } </p>
-					<p> { product.value } </p>
+					<p> R$: { Math.abs(product.value) } </p>
 				</button>
 			))
 			}	

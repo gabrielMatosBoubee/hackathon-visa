@@ -1,14 +1,22 @@
 .main {
+    padding-top: 2em;
     display: flex;
-    justify-content: space-between;
+    gap: 1.8em;
     color: black;
-    /* margin-bottom:; */
-    width: 90vw;
+    width: 90%;
     align-items: center;
+    margin: auto;
+    background-color: inherit;
+    border-bottom: 2px rgb(211, 211, 211) solid;
 }
 
 .img {
     display: block;
-    width: 150px;
-    height: 150px;
+    width: 40%;
+}
+
+.main h3 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    width: 40%;
 }
