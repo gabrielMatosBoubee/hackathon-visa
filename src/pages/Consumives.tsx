@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { consumiveis } from '../data';
 import Layout from '../componentes/Layout';
 import { GameContext } from '../context/GameContext';

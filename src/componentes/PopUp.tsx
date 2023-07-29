@@ -1,7 +1,11 @@
 import React from 'react';
 import style from '../styles/PopUp.module.css'
 
-function PopUp({ children }: {children: any}) {
+interface ComponentProps {
+    children: React.ReactNode;
+  }
+
+function PopUp({ children }: ComponentProps) {
     return (
         <div className={style.popupWrapper}>
             <div className={style.popup}>
