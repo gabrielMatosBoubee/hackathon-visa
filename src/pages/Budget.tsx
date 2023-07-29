@@ -10,7 +10,7 @@ function Budget() {
   const handleChange = (event: any) => {
     const name = event.target.name;
     const value = event.target.value;
-    setBudget(values => ({...values, [name]: value}))
+    setBudget((values) => ({...values, [name]: value}))
   }
 
     return (
@@ -52,6 +52,7 @@ function Budget() {
             value={budget.lazer || ""} 
             onChange={handleChange} />
         </label>
+        <button> Salvar orçamento </button>
         </div>
         <div className={ style.infoBudget }>
           <p style={{ color: 'white'}}> Com o orçamento é possível fazer comparações entre o previsto e o realizado</p>

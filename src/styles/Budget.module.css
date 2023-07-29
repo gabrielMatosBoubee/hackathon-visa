@@ -7,7 +7,6 @@
 
 .infoBudget {
   width: 85%;
-  /* height: 50vh; */
   bottom: 10%;
   margin: 0;
   padding: 0;
@@ -53,7 +52,14 @@
 }
 
 .mainBudget > div:nth-of-type(1)> label > input {
-  width: 300px;
-  height: 35px;
+  width: 80vw;
+  height: 5vh;
   border-radius: 15px;
+}
+.mainBudget > div:nth-of-type(1) > button {
+  font-size: 1em;
+  height: 8vh;
+  border-radius: 15px;
+  background-color: aqua;
+  margin-top: 10%;
 }
