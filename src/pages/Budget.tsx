@@ -5,7 +5,7 @@ import style from '../styles/Budget.module.css';
 
 
 function Budget() {
-  const { setBudget, budget } = useContext(GameContext)
+  const { setBudget, budget, day } = useContext(GameContext)
 
   const handleChange = (event: any) => {
     const name = event.target.name;
@@ -52,7 +52,7 @@ function Budget() {
             value={budget.lazer || ""} 
             onChange={handleChange} />
         </label>
-        <button> Salvar orçamento </button>
+        <button disabled={ day !== 1 }> Salvar orçamento </button>
         </div>
         <div className={ style.infoBudget }>
           <p style={{ color: 'white'}}> Com o orçamento é possível fazer comparações entre o previsto e o realizado</p>
