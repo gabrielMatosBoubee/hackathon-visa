@@ -55,16 +55,17 @@ function InvestCard({ name, image, descricao, caracteristicas = [], benefit, los
         const invest = localStorage.getItem(`investimentos-${name}`);
         if (invest !== null) {
           const {percent, interval: type} =  benefit[0]
-          const { startDay, actualValue} = JSON.parse(invest)
+          const { startDay, actualValue, investedValue} = JSON.parse(invest)
           const days = day - startDay || 0
           const totalValue = investCalc({percent, type, valor: actualValue, days}) || 0
           dispatch({type: "actualValue", value: totalValue})
+          dispatch({type: "investedValue", value: investedValue})
           dispatch({type: "timeInvested", value: days})
           const newInvest = {
             actualValue: totalValue,
-            investedValue: pontos.investedValue,
+            investedValue,
             timeInvested: days, 
-            startDay: day}
+            startDay}
           localStorage.setItem(`investimentos-${name}`, JSON.stringify(newInvest))
         }
       }, [])

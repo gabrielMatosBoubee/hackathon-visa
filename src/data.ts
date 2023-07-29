@@ -354,7 +354,7 @@ export const wallet = [{ image: user,
   name: "investimentos", link: "/investiments", id: 3, }, { image: cart, 
   name: "Consumiveis", link: "/itens", id: 4, }, { image: gastosPng, 
   name: "gastos", link: "/spendings", id: 5, }, { image: gastosPng, 
-    name: "Orçamento", link: "/budget", id: 5, }]
+    name: "Orçamento", link: "/budget", id: 6, }]
 
 
 export const consumiveis = [
