@@ -7,7 +7,7 @@ interface ComponentProps {
 
 function Layout({children}: ComponentProps) {
     return (
-        <div style={{width: "90vw", display: "flex", flexDirection: "column", margin: "auto"}}>
+        <div style={{display: "flex", flexDirection: "column", margin: "auto"}}>
           <Header />
           { children }
         </div>

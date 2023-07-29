@@ -7,7 +7,7 @@
 
 .infoBudget {
   width: 85%;
-  bottom: 10%;
+  bottom: 0%;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -32,7 +32,7 @@
 
 .mainBudget {
   position: relative;
-  height: 100vh;
+  height: calc(100vh - 15vh);
   display: flex;
   flex-direction: column; 
   align-items: center;
