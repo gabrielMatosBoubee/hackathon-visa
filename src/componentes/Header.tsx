@@ -13,7 +13,7 @@ function Header() {
     const { pontos: {coin, felicidade, vida} } = useContext(GameContext);
     const navigate = useNavigate();
 
-    const isEndGame = coin === 0 || vida === 0 || felicidade === 0;
+    const isEndGame = coin <= 0 || vida <= 0 || felicidade <= 0;
  
   return (
     <header className={style.header}>
