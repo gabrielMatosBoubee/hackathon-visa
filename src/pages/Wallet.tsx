@@ -10,10 +10,10 @@ function Wallet() {
     return (
         <Layout>
             { wallet.map(({image, link, name, id}) => (
-            <main key={ id } className={style.main} onClick={() => navigate(link)}>
+            <button key={ id } className={style.main} onClick={() => navigate(link)}>
               <img src={image} alt={name} className={style.img}/>
               <h3>{name}</h3>
-            </main>
+            </button>
             )
             )}
         </Layout>

@@ -16,8 +16,16 @@
     width: 100%;
     max-width: 500px;
     margin: auto;
-    padding: 20px;
+    padding: 1em;
     background: white;
     position: relative;
     border-radius: 16px;
+}
+
+.popupContent > p{
+    font-size: 1.2em;
+    padding: 1em;
+    text-align: center;
+    margin: auto;
+    width: 90%;
 }

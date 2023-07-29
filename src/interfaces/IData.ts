@@ -1,4 +1,5 @@
 export interface IEvents {
+    title: string;
     text: string;
     accept: {
       lost: { type?: string; value?: number };
