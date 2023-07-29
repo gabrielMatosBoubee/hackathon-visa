@@ -1,0 +1,24 @@
+.main {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    margin-bottom: 10px;
+    width: 90vw;
+    align-items: center;
+}
+
+.main::after {
+    flex: 0.5;
+    content: '';
+    height: 2px;
+    display: block;
+    background: rgb(159,25,25);
+    background: linear-gradient(90deg, rgba(159,25,25,1) 0%, rgba(105,24,31,1) 20%, rgba(12,18,40,1) 100%); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip:content-box;
+}
+
+.img {
+    width: 150px;
+}

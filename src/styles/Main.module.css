@@ -25,6 +25,8 @@
 .iconContainer {
     display: flex;
     align-items: center;
+    color: white;
+    font-size: 1.5rem;
 }
 
 .buttonsContainer {
