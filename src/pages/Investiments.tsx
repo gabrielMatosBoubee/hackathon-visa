@@ -7,13 +7,15 @@ function Investments() {
   return (
     <Layout>
       <div className={styles.investmentsCardsContainer} id='investmentsCardsContainer'>
-        {investiments.map(({ name, image, descricao, caracteristicas }) => (
+        {investiments.map(({ name, image, descricao, caracteristicas, benefit, loss }) => (
           <InvestCard
             key={name}
             name={name}
             image={image}
             descricao={descricao}
             caracteristicas={caracteristicas}
+            benefit={benefit}
+            loss={loss}
           />
         ))}
         <button

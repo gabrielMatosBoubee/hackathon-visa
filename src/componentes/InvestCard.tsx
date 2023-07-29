@@ -1,14 +1,17 @@
-import { useContext, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import styles from '../styles/Investiments.module.css';
 import benefitImg from '../icons/benefit.png'
 import lostImg from '../icons/lost.png'
 import { GameContext } from '../context/GameContext';
+import { investCalc } from '../uteis/investCalc';
 
 interface IComponentsProps {
   name: string;
   image: string;
   descricao: string;
   caracteristicas: Array<{ type: string; text: string }>;
+  benefit: Array<{ percent: number, interval: string}>;
+  loss?: Array<{ percent: number, interval: string}>;
 }
 
 interface IAction {
@@ -20,22 +23,23 @@ interface IAction {
     value: number,
     investedValue: number,
     actualValue: number,
-    timeInvested: string
+    timeInvested: number
   }
 
   const initialState = {
     value: 0,
     investedValue: 0,
     actualValue: 0,
-    timeInvested: "0"
+    timeInvested: 0
   };
 
-function InvestCard({ name, image, descricao, caracteristicas = [] }: IComponentsProps) {
-    const {dispatch: dispatchGlobal} = useContext(GameContext)
+function InvestCard({ name, image, descricao, caracteristicas = [], benefit }: IComponentsProps) {
+    const {dispatch: dispatchGlobal, pontos: { coin }, day} = useContext(GameContext);
+
     const reducer =  (state: INicialState, action: IAction) => {
         switch (action.type) {
           case "value":
-            return { ...state, value: state.value + action.value };
+            return { ...state, value: action.value };
           case "investedValue":
             return { ...state, investedValue: state.investedValue + action.value };
           case "actualValue":
@@ -47,7 +51,52 @@ function InvestCard({ name, image, descricao, caracteristicas = [] }: IComponent
         }
       };
 
-    const [pontos, dispatch] = useReducer(reducer, initialState);
+      useEffect(() => {
+        const invest = localStorage.getItem(`investimentos-${name}`);
+        if (invest !== null) {
+          const {percent, interval: type} =  benefit[0]
+          const { startDay, actualValue, investedValue} = JSON.parse(invest)
+          const days = day - startDay || 0
+          const totalValue = investCalc({percent, type, valor: actualValue, days}) || 0
+          dispatch({type: "actualValue", value: totalValue})
+          dispatch({type: "investedValue", value: investedValue})
+          dispatch({type: "timeInvested", value: days})
+          const newInvest = {
+            actualValue: totalValue,
+            investedValue,
+            timeInvested: days, 
+            startDay}
+          localStorage.setItem(`investimentos-${name}`, JSON.stringify(newInvest))
+        }
+      }, [])
+
+      const [pontos, dispatch] = useReducer(reducer, initialState);
+
+      const invista = () => {
+        if (pontos.value < coin && pontos.value > 0) {
+          dispatchGlobal({type: "coin", value: -pontos.value})
+          dispatch({type: "actualValue", value: pontos.value})
+          dispatch({type: "investedValue", value: pontos.value})
+          dispatch({type: "timeInvested", value: 0})
+          console.log(pontos.actualValue + pontos.value)
+          const invest = {
+            actualValue: pontos.actualValue + pontos.value,
+            investedValue: pontos.investedValue + pontos.value,
+            timeInvested: pontos.timeInvested + pontos.value, 
+            startDay: day}
+          localStorage.setItem(`investimentos-${name}`, JSON.stringify(invest))
+        } else alert("Dinheiro insufienciente!")
+      }
+
+      const retireSeuInvestimento = () => {
+        if (pontos.actualValue > 0) {
+          dispatchGlobal({type: "coin", value: pontos.actualValue})
+          dispatch({type: "actualValue", value: -pontos.actualValue})
+          dispatch({type: "investedValue", value: -pontos.investedValue})
+          dispatch({type: "timeInvested", value: -pontos.timeInvested})
+          localStorage.removeItem(`investimentos-${name}`)
+        }
+      }
     
   return (
     <div className={styles.investmentContainer}>
@@ -76,12 +125,12 @@ function InvestCard({ name, image, descricao, caracteristicas = [] }: IComponent
             <p>quantidade investida: R$ {pontos.investedValue}</p>
             <p>tempo investido: {pontos.timeInvested} dias</p>
             <p>valor atual: R$ {pontos.actualValue}</p>
-            <button className={styles.button} onClick={() => dispatchGlobal({type: "coin", value: pontos.actualValue})}>Retire seu investimento</button>
+            <button className={styles.button} onClick={retireSeuInvestimento}>Retire seu investimento</button>
             <label htmlFor="">
                 <p>quantidade a ser investida:</p>
                 <input type="number" onChange={({target: {value}}) => dispatch({type: "value", value: Number(value)})}/>
             </label>
-            <button className={styles.button}>Invista aqui</button>
+            <button className={styles.button} onClick={invista}>Invista aqui</button>
         </section>
         </div>
       </main>

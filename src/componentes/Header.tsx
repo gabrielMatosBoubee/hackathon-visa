@@ -8,8 +8,6 @@ import PopUp from './PopUp';
 import player from "../icons/player.png"
 import Chronometer from '../pages/Chronometer';
 
-// import PopUp from './PopUp';
-
 function Header() {
     const { pontos: {coin, felicidade, vida}, day } = useContext(GameContext);
     const [showPopUp, setShowPopUp] = useState(0);
@@ -33,6 +31,7 @@ function Header() {
     }, [day]);
 
     const isEndGame = coin === 0 || vida === 0 || felicidade === 0;
+
  
   return (
     <header className={style.header}>
