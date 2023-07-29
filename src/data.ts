@@ -210,6 +210,18 @@ export const investiments = [
     name: "Renda fixa",
     image: "https://cdnbr.guiadoinvestidor.com.br/2021/06/rendafixa.jpg",
     descricao: "A renda fixa é uma modalidade de investimento caracterizada por ter a rentabilidade preestabelecida no momento da aplicação. É considerada uma opção de investimento mais conservadora e segura.",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "Pode haver perdas dependendo do tipo de renda fixa escolhida." },
       { type: "benefit", text: "Garante uma rentabilidade mínima mesmo em cenários adversos." },
@@ -220,6 +232,18 @@ export const investiments = [
     name: "Poupança",
     image: "https://www.sicoobengecred.coop.br/wp-content/uploads/2022/11/banner-blogpost-poupanca.jpg",
     descricao: "A poupança é uma das modalidades de investimento mais tradicionais do Brasil. É uma opção de baixo risco e com alta liquidez, mas sua rentabilidade pode ser afetada pela taxa básica de juros (Selic) e pela inflação.",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "A rentabilidade da poupança pode ficar abaixo da inflação em alguns períodos." },
       { type: "benefit", text: "É uma opção segura para guardar dinheiro de forma rápida e acessível." },
@@ -229,6 +253,18 @@ export const investiments = [
     name: "Selic",
     descricao: "O Tesouro Selic é um título público do Tesouro Direto que acompanha a taxa básica de juros (Selic). É considerado um investimento seguro e uma alternativa interessante para a reserva de emergência.",
     image: "https://www.cordierinvestimentos.com.br/blog/wp-content/uploads/2021/03/3-1536x768.jpg",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "A rentabilidade do Tesouro Selic pode ser afetada pela variação da taxa básica de juros (Selic)." },
       { type: "lost", text: "Há a incidência de imposto de renda sobre o rendimento do título." },
@@ -240,6 +276,18 @@ export const investiments = [
     name: "Fundos de Investimento",
     descricao: "Os fundos de investimento são uma modalidade de investimento coletivo, onde os recursos de vários investidores são reunidos e aplicados em uma carteira diversificada de ativos. Existem diversos tipos de fundos, cada um com suas próprias características e estratégias de investimento.",
     image: "https://atlasinvest.com.br/wp-content/uploads/2020/07/Fundos_Investimento.png",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "Os fundos de investimento estão sujeitos a riscos de mercado e podem apresentar perdas." },
       { type: "lost", text: "Algumas modalidades de fundos cobram taxas de administração e performance, o que pode impactar a rentabilidade do investimento." },
@@ -251,6 +299,18 @@ export const investiments = [
     name: "Tesouro Direto",
     descricao: "O Tesouro Direto é um programa do governo federal que permite a compra de títulos públicos diretamente pela internet. É uma opção de investimento de renda fixa, onde o investidor empresta dinheiro para o governo em troca de uma remuneração.",
     image: "https://cdn.evg.gov.br/cursos/244_EVG/banner.svg",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "A rentabilidade do Tesouro Direto pode ser afetada por mudanças na taxa básica de juros (Selic) e por oscilações no mercado financeiro." },
       { type: "lost", text: "Em alguns títulos, há incidência de imposto de renda sobre o rendimento." },
@@ -262,6 +322,18 @@ export const investiments = [
     name: "Títulos Privados",
     descricao: "Os títulos privados são emitidos por instituições financeiras e empresas privadas, e podem ser uma opção de investimento de renda fixa. Alguns exemplos de títulos privados são CDBs, LCIs e LCAs.",
     image: "https://files.certifiquei.com.br/p/uploads/2020/09/T%C3%ADtulos-privados.jpg",
+    benefit: [
+      {
+        percent: 1.14,
+        interval: "day",
+      }
+    ],
+    loss: [
+      {
+        percent: 0.1,
+        interval: "day",
+      }
+    ],
     caracteristicas: [
       { type: "lost", text: "Os títulos privados estão sujeitos a riscos de crédito da instituição emissora." },
       { type: "lost", text: "Em alguns casos, é necessário pagar imposto de renda sobre o rendimento dos títulos." },
@@ -282,7 +354,7 @@ export const wallet = [{ image: user,
   name: "investimentos", link: "/investiments", id: 3, }, { image: cart, 
   name: "Consumiveis", link: "/itens", id: 4, }, { image: gastosPng, 
   name: "gastos", link: "/spendings", id: 5, }, { image: gastosPng, 
-    name: "Orçamento", link: "/budget", id: 5, }]
+    name: "Orçamento", link: "/budget", id: 6, }]
 
 
 export const consumiveis = [

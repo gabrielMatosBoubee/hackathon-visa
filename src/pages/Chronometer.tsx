@@ -10,6 +10,9 @@ function Chronometer() {
   const monthDuration = 30;
 
   useEffect(() => {
+    if (localStorage.getItem("time") !== null) {
+      setTime(Number(localStorage.getItem("time")))
+    }
     const timer = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
     }, 1000);
@@ -18,6 +21,7 @@ function Chronometer() {
   }, []);
 
   useEffect(() => {
+    if (time > 0) localStorage.setItem("time", time.toString())
     if(time >= dayDuration) {
       setTime(0)
       setDay((prevDay) => prevDay + 1)
