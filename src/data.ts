@@ -1,22 +1,26 @@
 import { IEvents } from "./interfaces/IData";
 
 // precisa rever gastos para bater com dispesa real
-const gastos = {
+export const gastos = {
   estagiario: [
    {
       name: "telefone",
       value: 38,
       type: "fixed",
-      daily: "monthly",
-      buff: "saude",
+      purchaseInterval: "monthly",
+      buff: "vida",
       charge: +3,
+      valorEstipulado: 38,
+      valueSpending: 300,
     }, {
       name: "plano de saude",
       value: 220,
       type: "fixed",
-      daily: "monthly",
-      buff: "saude",
+      purchaseInterval: "monthly",
+      buff: "vida",
       charge: +15,
+      valorEstipulado: 220,
+      valueSpending: 220,
     },
   ],
   junior: [
@@ -24,93 +28,93 @@ const gastos = {
     name: "aluguel",
     cost: 500,
     type: "fixed",
-    daily: "monthly",
+    purchaseInterval: "monthly",
     buff: "felicidade",
     charge: +10,
   }, { 
     name: "luz",
     value: 80,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, { 
     name: "água",
     value: 60,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, { 
     name: "internet",
     value: 80,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +10,
   }, {
     name: "telefone",
     value: 38,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +3,
   }, {
     name: "mercado",
     value: 526,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, {
     name: "seguro de vida",
     value: 120,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }],
   pleno: [{ 
     name: "aluguel",
     value: 600,
     type: "fixed",
-    daily: "monthly",
+    purchaseInterval: "monthly",
     buff: "felicidade",
     charge: +10,
   }, { 
     name: "luz",
     value: 120,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, { 
     name: "água",
     value: 100,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, { 
     name: "internet",
     value: 100,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +10,
   }, {
     name: "telefone",
     value: 50,
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +3,
   }, {
     name: "mercado",
     value: "626",
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   }, {
     name: "academia",
@@ -130,14 +134,14 @@ const gastos = {
     name: "plano de saude",
     value: "220",
     type: "fixed",
-    daily: "monthly",
-    buff: "saude",
+    purchaseInterval: "monthly",
+    buff: "vida",
     charge: +15,
   },
   ],
 }
 
-const events: IEvents[] = [
+export const events: IEvents[] = [
   {
     text: `Você foi convidado para um happy hour com seus colegas de trabalho, porém eles pretendem sair para comer em um restaurante caro, você decide ir com eles e gastar 150 coins?`,
     accept: { lost: {type: "coin", value: -150 }, benefit: { type: "felicidade", value: +30 } },
@@ -193,6 +197,14 @@ const events: IEvents[] = [
   }
 ]
 
-const niveis = [{ level: "Estagiário", salary: 500 }, { level:"Júnior I", salary: 1320 }, { level: "Júnior II", salary: 1700 }, { level: "Júnior III", salary: 2000 }, { level: "Pleno I", salary: 2600}, { level: "Pleno II", salary: 3000 }, { level: "Pleno III", salary: 4000 }, { level: "Senior I", salary: 6000}, { level: "Senior II", salary: 7500 }, { level: "Senior III", salary: 10000}]
+export const niveis = [{ level: "Estagiário", salary: 500 }, { level:"Júnior I", salary: 1320 }, { level: "Júnior II", salary: 1700 }, { level: "Júnior III", salary: 2000 }, { level: "Pleno I", salary: 2600}, { level: "Pleno II", salary: 3000 }, { level: "Pleno III", salary: 4000 }, { level: "Senior I", salary: 6000}, { level: "Senior II", salary: 7500 }, { level: "Senior III", salary: 10000}]
 
-export default { gastos, events, niveis };
+export const wallet = [{ image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "tela principal", link: "/", id: 0, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "cartão de credito", link: "/credit-card", id: 1, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "cartão de debito", link: "/credit-card", id: 2, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "investimentos", link: "/credit-card", id: 3, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Comidas", link: "/credit-card", id: 4, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "gastos", link: "/spendings", id: 5, }]
+
+export default { gastos, events, niveis, wallet };
