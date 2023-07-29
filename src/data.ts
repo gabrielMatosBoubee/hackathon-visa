@@ -277,4 +277,24 @@ name: "investimentos", link: "/investiments", id: 3, }, { image: cart,
 name: "Consumiveis", link: "/itens", id: 4, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
 name: "gastos", link: "/spendings", id: 5, }]
 
-export default { gastos, events, niveis, wallet };
+export const consumiveis = [
+  { name: "energetico BlueCow", value: -9, benefit: [{ type: "felicidade", value: 9 }], lost: [{ type: "vida", value: -10 }], type: 'comida' },
+  { name: "refrigerante de cola", value: -8, benefit: [{ type: "felicidade", value: 10 }], lost: [{type: "saude", value: -15}], type: 'comida' },
+  { name: "maçã", value: -9, benefit: [{ type: "saude", value: 5 }], lost: [], type: 'comida' },
+  { name: "brownie suspeito", value: -2, benefit: [{ type: "felicidade", value: 3 }], lost: [{ type: "vida", value: -5 }], type: 'comida' },
+  
+  { name: "remédio para dor", value: -30, benefit: [{ type: "vida", value: 25 }], lost: [], type: 'medicamento' },
+  { name: "curativo adesivo", value: -15, benefit: [{ type: "vida", value: 10 }], lost: [], type: 'medicamento' },
+  { name: "soro fisiológico", value: -20, benefit: [{ type: "vida", value: 15 }], lost: [], type: 'medicamento' },
+
+  { name: 'camiseta regata', value: 20, benefit: [{ type: "felicidade", value: 5 }], lost: [], type: 'vestuario'},
+  { name: "calça jeans", value: -100, benefit: [{ type: "felicidade", value: 35 }], lost: [], type: 'vestuario' },
+  { name: "camisa de time", value: -120, benefit: [{ type: "felicidade", value: 40 }], lost: [], type: 'vestuario' },
+  { name: "bermuda", value: -55, benefit: [{ type: "felicidade", value: 25 }], lost: [], type: 'vestuario' },
+
+  { name: "livro de contos", value: -45, benefit: [{ type:"felicidade", value: 25}], lost:[], type: "entretenimento" },
+  { name: "cinema", value: -15, benefit: [{ type:"felicidade", value: 5 }], lost:[], type: "entretenimento" },
+  { name: "parque", value: -30, benefit: [{ type:"felicidade", value: 25 }], lost:[], type: "entretenimento" }
+]
+
+export default { gastos, events, niveis, wallet, consumiveis };
