@@ -17,21 +17,21 @@ interface IEvent {
 function Main() {
   const [isOpen, setIsOpen] = useState(false);
   const {dispatch, setEvents, events, currentEvent, setCurrentEvent, day } = useContext(GameContext)
-  const [showPopUp, setShowPopUp] = useState(false);
-
-  const showPopupHandler = () => setShowPopUp(true);
-
+  const [showPopUp, setShowPopUp] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-    setShowPopUp(false);
+      setShowPopUp(0);
   }, 5000);
     return () => clearTimeout(timer);
   }, [showPopUp]);
 
   useEffect(() => {
     if(day === 1) {
-      showPopupHandler();
+      setShowPopUp(1);
+    }
+    if(day === 30) {
+      setShowPopUp(2);
     }
   }, [day]);
 
@@ -61,8 +61,8 @@ function Main() {
       <>
       <Header />
       <main className={style.main} >
-        { showPopUp ?
-        <div> <p> Chegou dia primeiro! Está na hora de se planejar para o mês que está chegando! </p></div>  : null }
+        { showPopUp !== 0 ?
+        <div> <p> {showPopUp === 1 ? "Chegou dia primeiro! Está na hora de se planejar para o mês que está chegando!" : "Chegou o último dia do mês, vamos ver se seguimos o orçamento!"  } </p></div>  : null }
           <img src={player} alt="Seu personagem" />
           {isOpen && <PopUp>
             <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
