@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import style from '../styles/Main.module.css'
+import style from '../styles/Header.module.css'
 import { GameContext } from '../context/GameContext';
 import ProgressBar from './ProgressBar';
 import wallet from "../icons/wallet-removebg.png"
@@ -14,25 +14,30 @@ function Header() {
     const navigate = useNavigate();
 
     const isEndGame = coin === 0 || vida === 0 || felicidade === 0;
-    
-    return (
-        <header className={style.header}>
-              <ProgressBar percentage={vida > 100 ? 100 : vida} color='#ff0000' name="SAÚDE" />
-              <ProgressBar percentage={felicidade > 100 ? 100 : felicidade} color="#ff5555" name="Felicidade" />
-              <span className={style.iconsContainer}>
-                <span className={style.iconContainer}>
-                  <img 
-                    src={wallet} 
-                    alt="carteira" 
-                    className={style.icon} 
-                    onClick={() => navigate("/wallet")}
-                  />
-                  <p>{coin}</p>
-                  <Chronometer/>
-                </span>
-              </span>
-              <Chronometer />
-              { isEndGame && <PopUp>
+ 
+  return (
+    <header className={style.header}>
+      <div>
+        <Chronometer/>
+        <p>
+          <span> cargo</span>
+          <span> Estagiário </span>
+        </p>
+        <div className={style.money}>
+          <p>{pontos.coin}</p>
+          <img 
+            src={wallet} 
+            alt="carteira" 
+            className={style.headerIcon} 
+            onClick={() => navigate("/wallet")}
+          />
+        </div>
+      </div>
+      <ProgressBar percentage={pontos.vida > 100 ? 100 : pontos.vida} color='#ff0000' name="SAÚDE" />
+      <ProgressBar percentage={pontos.felicidade > 100 ? 100 : pontos.felicidade} color="#ff5555" name="Felicidade" />
+      <span className={style.iconsContainer}>
+      </span>
+           { isEndGame && <PopUp>
                 <p>Você perdeu!</p>
                 <button 
                     className={style.button} 

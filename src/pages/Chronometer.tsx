@@ -1,5 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { GameContext } from '../context/GameContext';
+import style from '../styles/Header.module.css'
+
 
 function Chronometer() {
   const [time, setTime] = useState(0);
@@ -27,9 +29,9 @@ function Chronometer() {
 
 
   return (
-    <div className="Chronometer">
-      <h1>Dia: { day } </h1>
-      <h2>Timer: { time } segundos</h2>
+    <div className={ style.chronometer }>
+      <p><span>Dia:</span> { day } </p>
+      <p>{ time }</p>
     </div>
   );
 }

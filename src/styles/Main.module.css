@@ -9,27 +9,11 @@
     width: 300px;
 }
 
-.header {
-    width: 90vw;
-}
-
 .iconsContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.icon {
-    width: 70px;
-    margin-right: 5px;
-}
-
-.iconContainer {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 1.5rem;
 }
 
 .buttonsContainer {
@@ -46,3 +30,4 @@
     font-size: large;
     font-weight: 700;
 }
+
