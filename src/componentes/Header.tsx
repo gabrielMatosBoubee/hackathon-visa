@@ -6,6 +6,7 @@ import wallet from "../icons/wallet-removebg.png"
 import { useNavigate } from 'react-router-dom';
 import PopUp from './PopUp';
 import Chronometer from '../pages/chronometer';
+
 // import PopUp from './PopUp';
 
 function Header() {
@@ -22,11 +23,12 @@ function Header() {
                 <span className={style.iconContainer}>
                   <img 
                     src={wallet} 
-                    alt="cartão de credito" 
+                    alt="carteira" 
                     className={style.icon} 
                     onClick={() => navigate("/wallet")}
                   />
-                  <p>R$: {coin}</p>
+                  <p>{coin}</p>
+                  <Chronometer/>
                 </span>
               </span>
               <Chronometer />
