@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.button {
+    height: 50px;
+    border-radius: 10px;
+    font-size: large;
+    font-weight: 700;
+    color: white;
+    background-color: greenyellow;
+}
+
+.facture {
+    margin: 30px 0 30px 0;
+}

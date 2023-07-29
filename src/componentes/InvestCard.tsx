@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react';
+import { useContext, useReducer } from 'react';
 import styles from '../styles/Investiments.module.css';
 import benefitImg from '../icons/benefit.png'
 import lostImg from '../icons/lost.png'

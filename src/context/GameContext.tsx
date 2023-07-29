@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useReducer, useState } from 'react';
-import { IEvents } from '../interfaces/IData';
+import { IBeneficios, IEvents } from '../interfaces/IData';
 
 interface IAction {
     value: number,
@@ -14,8 +14,7 @@ interface IAction {
 
   interface ComponentProps {
     children: ReactNode;
-  }
-
+  } 
 // GameContext.js
 
 const initialState = {
@@ -45,12 +44,16 @@ const GameContext =  createContext<{
     currentEvent: number;
     setCurrentEvent: React.Dispatch<React.SetStateAction<number>>;
     dispatch: React.Dispatch<IAction>;
+    beneficios: IBeneficios[];
+    setBeneficios: React.Dispatch<React.SetStateAction<IBeneficios[]>>;
   }>({
     pontos: initialState,
     events: [], // Inicialmente, o array de eventos está vazio
-    setEvents: () => undefined,
+    beneficios: [],
     currentEvent: 0, // Inicialmente, o índice do evento atual é 0
+    setEvents: () => undefined,
     setCurrentEvent: () => undefined,
+    setBeneficios: () => undefined,
     dispatch: () => undefined,
   });
 
@@ -58,9 +61,11 @@ const GameProvider = ({ children }: ComponentProps) => {
   const [pontos, dispatch] = useReducer(reducer, initialState);
   const [events, setEvents] = useState([]  as IEvents[])
   const [currentEvent, setCurrentEvent] = useState(0)
+  const [beneficios, setBeneficios] = useState([] as IBeneficios[])
 
   return (
-    <GameContext.Provider value={{ pontos, dispatch, events, setEvents, currentEvent, setCurrentEvent }}>
+    <GameContext.Provider value={{ pontos, dispatch, 
+    events, setEvents, currentEvent, setCurrentEvent, beneficios, setBeneficios }}>
       {children}
     </GameContext.Provider>
   );
