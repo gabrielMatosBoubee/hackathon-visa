@@ -108,3 +108,25 @@
 .budgetPopUp > img {
   width: 5vh;
 }
+.iconsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.buttonsContainer {
+  padding-top: 1.5em;
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 700;
+}

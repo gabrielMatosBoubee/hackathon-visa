@@ -23,7 +23,7 @@ function CreditCard() {
             setCredit((prevValue) => prevValue - value)
             setDebito((prevValue) => prevValue + value + Math.floor(prevValue + value)/100)
             setValue(0)
-        } else alert("Você não tem isso de credito ainda.")
+        } else alert("Você não possui isso de credito ainda.")
     }
 
     const payFacture = () => {
@@ -32,7 +32,7 @@ function CreditCard() {
             dispatch({type: "coin", value: -debito})
             setCredit((prevValue) => (prevValue + debito) > maxCredit ? maxCredit : prevValue + debito)
             setDebito(0)
-        } else alert("Você não dinheiro suficiente para isso")
+        } else alert("Você não possui dinheiro suficiente para isso")
     }
 
     return (
