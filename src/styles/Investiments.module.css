@@ -1,0 +1,131 @@
+.investmentContainer {
+    min-width: 90vw;
+    position: relative;
+}
+
+.investmentCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    min-height: 90%;
+    min-height: 800px;
+    box-shadow: 0 0 10px black;
+    text-align: start;
+}
+
+.investmentCardTop {
+    width: 100%;
+    background-color: rgb(36, 36, 226);
+    background: linear-gradient(rgb(36, 36, 226), rgb(14, 14, 165));
+    display: flex;
+    justify-content: center;
+    text-align: start;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    margin: 5px;
+    text-align: start;
+}
+
+.investmentImageContainer {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    text-align: start;
+}
+
+.investmentDescription {
+    width: 85%;
+    /* margin: auto; */
+    text-align: center;
+    font-weight: 800;
+    text-align: start;
+}
+
+.caracteristicas {
+ margin-bottom: 10px;
+}
+
+.caracteristicasInvestment {
+    width: 85%;
+    margin-top: 25px;
+    text-align: start;
+}
+
+.caracteristicasInvestment div {
+    display: flex;
+    align-items: center;
+}
+
+.caracteristicasInvestment img {
+    position: absolute;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.caracteristicasInvestment p{
+    text-align: left;
+    font-weight: 800;
+}
+
+.investmentsCardsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+
+.NextButton {
+    background-color: rgb(212, 34, 34);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    position: fixed;
+    font-size: 25px;
+    right: 5px;
+    top: 50vh;
+    font-weight: 800;
+    border: none;
+}
+
+.PrevButton {
+    background-color: rgb(212, 34, 34);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    position: fixed;
+    font-size: 25px;
+    left: 5px;
+    top: 50vh;
+    font-weight: 800;
+    border: none;
+}
+
+.button {
+    border-radius: 8px;
+    height: 40px;
+    font-size: larger;
+    background-color: yellowgreen;
+    color: white;
+}
+
+
+@media screen and (min-width: 1000px) { 
+    .investmentContainer {
+        min-width: 33vw;
+        width: 33vw;
+    }    
+}

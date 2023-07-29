@@ -5,7 +5,7 @@ import PopUp from '../componentes/PopUp';
 import data from "../data"
 import shuffleArray from '../uteis/SufleArray';
 import { GameContext } from '../context/GameContext';
-import Header from '../componentes/Header';
+import Layout from '../componentes/Layout';
 
 interface IEvent {
   [key: string]: {
@@ -42,28 +42,29 @@ function Main() {
     
 
     return (
-        <main className={style.main} >
-            <Header />
-            <img src={player} alt="Seu personagem" />
-            {isOpen && <PopUp>
-              <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
-              <br />
-              <span className={style.buttonsContainer}>
-                <button 
-                  className={style.button} 
-                  style={{background: "#2DD46C", color: "white"}} 
-                  onClick={() => awnserEvent(events[currentEvent].accept)}>
-                  sim
-                </button>
-                <button 
-                  className={style.button} 
-                  style={{background: "red", color: "white"}}
-                  onClick={() => awnserEvent(events[currentEvent].denied)}>
-                  não
-                </button>
-              </span>
-              </PopUp>}
-        </main>
+        <Layout>
+          <main className={style.main} >
+              <img src={player} className={style.img} alt="Seu personagem" />
+              {isOpen && <PopUp>
+                <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
+                <br />
+                <span className={style.buttonsContainer}>
+                  <button 
+                    className={style.button} 
+                    style={{background: "#2DD46C", color: "white"}} 
+                    onClick={() => awnserEvent(events[currentEvent].accept)}>
+                    sim
+                  </button>
+                  <button 
+                    className={style.button} 
+                    style={{background: "red", color: "white"}}
+                    onClick={() => awnserEvent(events[currentEvent].denied)}>
+                    não
+                  </button>
+                </span>
+                </PopUp>}
+          </main>
+        </Layout>
     );
 }
 
