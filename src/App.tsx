@@ -4,8 +4,10 @@ import Main from './pages/Main'
 import Wallet from './pages/Wallet'
 import { GameProvider } from './context/GameContext';
 import Spending from './pages/Spending';
+import Budget from './pages/Budget';
 import Investments from './pages/Investiments';
 import CreditCard from './pages/CreditCard';
+import Consumives from './pages/Consumives';
 
 function App() {
   const router = createBrowserRouter([{
@@ -13,13 +15,12 @@ function App() {
     element: <Main />
   }, {path: "*", element: <div>ERROR 404</div>},
   {path: "/wallet", element: <Wallet />},
-  {path: "/spendings", element: <Spending />}, 
-  {path: "/investiments", element: <Investments />},
-  {path: "/credit-card", element: <CreditCard />}
+  {path: "/itens", element: <Consumives />},
+  {path: "/budget", element: <Budget />},
+  {path: "/spendings", element: <Spending />},
+  {path: "/investiments", element: <Investments />}
 ])
-
-
-
+  
   return (
     <GameProvider>
      <RouterProvider router={router}/>
