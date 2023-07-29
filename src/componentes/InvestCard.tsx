@@ -55,7 +55,7 @@ function InvestCard({ name, image, descricao, caracteristicas = [], benefit, los
         const invest = localStorage.getItem(`investimentos-${name}`);
         if (invest !== null) {
           const {percent, interval: type} =  benefit[0]
-          const { startDay, actualValue} = invest as any
+          const { startDay, actualValue} = JSON.parse(invest)
           const days = day - startDay || 0
           const totalValue = investCalc({percent, type, valor: actualValue, days}) || 0
           dispatch({type: "actualValue", value: totalValue})
@@ -72,14 +72,16 @@ function InvestCard({ name, image, descricao, caracteristicas = [], benefit, los
       const [pontos, dispatch] = useReducer(reducer, initialState);
 
       const invista = () => {
-        if (pontos.value < coin) {
+        if (pontos.value < coin && pontos.value > 0) {
+          dispatchGlobal({type: "coin", value: -pontos.value})
           dispatch({type: "actualValue", value: pontos.value})
           dispatch({type: "investedValue", value: pontos.value})
           dispatch({type: "timeInvested", value: 0})
+          console.log(pontos.actualValue + pontos.value)
           const invest = {
-            actualValue: pontos.actualValue,
-            investedValue: pontos.investedValue,
-            timeInvested: pontos.timeInvested, 
+            actualValue: pontos.actualValue + pontos.value,
+            investedValue: pontos.investedValue + pontos.value,
+            timeInvested: pontos.timeInvested + pontos.value, 
             startDay: day}
           localStorage.setItem(`investimentos-${name}`, JSON.stringify(invest))
         } else alert("Dinheiro insufienciente!")
@@ -91,6 +93,7 @@ function InvestCard({ name, image, descricao, caracteristicas = [], benefit, los
           dispatch({type: "actualValue", value: -pontos.actualValue})
           dispatch({type: "investedValue", value: -pontos.investedValue})
           dispatch({type: "timeInvested", value: -pontos.timeInvested})
+          localStorage.removeItem(`investimentos-${name}`)
         }
       }
     
