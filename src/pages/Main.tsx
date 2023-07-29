@@ -59,7 +59,6 @@ function Main() {
 
     return (
         <Layout>
-          <Header />
           <main className={style.main} >
             { showPopUp !== 0 ?
         <div> <p> {showPopUp === 1 ? "Chegou dia primeiro! Está na hora de se planejar para o mês que está chegando!" : "Chegou o último dia do mês, vamos ver se seguimos o orçamento!"  } </p></div>  : null }

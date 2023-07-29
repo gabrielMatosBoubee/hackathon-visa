@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 import wallet from "../icons/wallet-removebg.png"
 import { useNavigate } from 'react-router-dom';
 import PopUp from './PopUp';
-import Chronometer from '../pages/chronometer';
+import Chronometer from '../pages/Chronometer';
 
 // import PopUp from './PopUp';
 
