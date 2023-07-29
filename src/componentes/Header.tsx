@@ -4,19 +4,17 @@ import { GameContext } from '../context/GameContext';
 import ProgressBar from './ProgressBar';
 import wallet from "../icons/wallet-removebg.png"
 import { useNavigate } from 'react-router-dom';
+import PopUp from './PopUp';
 import Chronometer from '../pages/Chronometer';
+
 // import PopUp from './PopUp';
 
 function Header() {
-    const { pontos } = useContext(GameContext);
+    const { pontos: {coin, felicidade, vida} } = useContext(GameContext);
     const navigate = useNavigate();
 
-    
-    // if(pontos.coin <= 0 || pontos.vida <= 0 || pontos.felicidade <= 0) {
-    //   return (<PopUp>
-    //     game
-    //   </PopUp>)
-    // }
+    const isEndGame = coin === 0 || vida === 0 || felicidade === 0;
+ 
   return (
     <header className={style.header}>
       <div>
@@ -39,6 +37,16 @@ function Header() {
       <ProgressBar percentage={pontos.felicidade > 100 ? 100 : pontos.felicidade} color="#ff5555" name="Felicidade" />
       <span className={style.iconsContainer}>
       </span>
+           { isEndGame && <PopUp>
+                <p>Você perdeu!</p>
+                <button 
+                    className={style.button} 
+                    style={{background: "#2DD46C", color: "white"}}>
+                    Jogar de novo
+                </button>
+              </PopUp>
+
+              }
         </header>
     );
 }

@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/aux-dotbitc');
+
 * {
  margin: 0;
  border: 0;
@@ -7,5 +9,10 @@
 
 body {
   background-color: #242424;
+  font-family: 'AuX DotBitC', sans-serif;
+  font-family: 'AuX DotBitC Xtra', sans-serif;
+  font-family: 'AuX DotBitC Xtra SmallCaps', sans-serif;
+  font-family: 'AuX DotBitC Xtra Bold', sans-serif;
+
 }
 

@@ -1,4 +1,10 @@
-import { IEvents } from "./interfaces/IData";
+import { IBeneficios, IEvents } from "./interfaces/IData";
+import cardVisa from "./icons/cartãoVisa.png"
+import cardVisaStard from "./icons/cartaoStandard.png"
+import cart from "./icons/cart.png"
+import investImg from "./icons/investimentos.png"
+import gastosPng from "./icons/gastos.png"
+import user from "./icons/player.png"
 
 // precisa rever gastos para bater com dispesa real
 export const gastos = {
@@ -197,6 +203,76 @@ export const events: IEvents[] = [
   }
 ]
 
+// const t = {name: "energetico", value: 9, type: "comida, vestuario, casa, lazer", benefit: [{type: "felicidade", value: 10 }] }; 
+
+export const investiments = [
+  { 
+    name: "Renda fixa",
+    image: "https://cdnbr.guiadoinvestidor.com.br/2021/06/rendafixa.jpg",
+    descricao: "A renda fixa é uma modalidade de investimento caracterizada por ter a rentabilidade preestabelecida no momento da aplicação. É considerada uma opção de investimento mais conservadora e segura.",
+    caracteristicas: [
+      { type: "lost", text: "Pode haver perdas dependendo do tipo de renda fixa escolhida." },
+      { type: "benefit", text: "Garante uma rentabilidade mínima mesmo em cenários adversos." },
+      { type: "benefit", text: "Possui diversas opções de investimento com diferentes prazos e rentabilidades." },
+    ],
+  },
+  { 
+    name: "Poupança",
+    image: "https://www.sicoobengecred.coop.br/wp-content/uploads/2022/11/banner-blogpost-poupanca.jpg",
+    descricao: "A poupança é uma das modalidades de investimento mais tradicionais do Brasil. É uma opção de baixo risco e com alta liquidez, mas sua rentabilidade pode ser afetada pela taxa básica de juros (Selic) e pela inflação.",
+    caracteristicas: [
+      { type: "lost", text: "A rentabilidade da poupança pode ficar abaixo da inflação em alguns períodos." },
+      { type: "benefit", text: "É uma opção segura para guardar dinheiro de forma rápida e acessível." },
+    ],
+  },
+  { 
+    name: "Selic",
+    descricao: "O Tesouro Selic é um título público do Tesouro Direto que acompanha a taxa básica de juros (Selic). É considerado um investimento seguro e uma alternativa interessante para a reserva de emergência.",
+    image: "https://www.cordierinvestimentos.com.br/blog/wp-content/uploads/2021/03/3-1536x768.jpg",
+    caracteristicas: [
+      { type: "lost", text: "A rentabilidade do Tesouro Selic pode ser afetada pela variação da taxa básica de juros (Selic)." },
+      { type: "lost", text: "Há a incidência de imposto de renda sobre o rendimento do título." },
+      { type: "lost", text: "O rendimento pode ficar abaixo de outras opções de investimento em momentos de alta da Selic." },
+      { type: "benefit", text: "É uma opção de investimento de baixo risco." },
+    ],
+  },
+  { 
+    name: "Fundos de Investimento",
+    descricao: "Os fundos de investimento são uma modalidade de investimento coletivo, onde os recursos de vários investidores são reunidos e aplicados em uma carteira diversificada de ativos. Existem diversos tipos de fundos, cada um com suas próprias características e estratégias de investimento.",
+    image: "https://atlasinvest.com.br/wp-content/uploads/2020/07/Fundos_Investimento.png",
+    caracteristicas: [
+      { type: "lost", text: "Os fundos de investimento estão sujeitos a riscos de mercado e podem apresentar perdas." },
+      { type: "lost", text: "Algumas modalidades de fundos cobram taxas de administração e performance, o que pode impactar a rentabilidade do investimento." },
+      { type: "benefit", text: "Os fundos permitem o acesso a uma diversidade de ativos e estratégias de investimento, mesmo para investidores com pouco capital." },
+      { type: "benefit", text: "Existem fundos de investimento com diferentes perfis de risco, adequados para diferentes objetivos e perfis de investidores." },
+    ],
+  },
+  { 
+    name: "Tesouro Direto",
+    descricao: "O Tesouro Direto é um programa do governo federal que permite a compra de títulos públicos diretamente pela internet. É uma opção de investimento de renda fixa, onde o investidor empresta dinheiro para o governo em troca de uma remuneração.",
+    image: "https://cdn.evg.gov.br/cursos/244_EVG/banner.svg",
+    caracteristicas: [
+      { type: "lost", text: "A rentabilidade do Tesouro Direto pode ser afetada por mudanças na taxa básica de juros (Selic) e por oscilações no mercado financeiro." },
+      { type: "lost", text: "Em alguns títulos, há incidência de imposto de renda sobre o rendimento." },
+      { type: "lost", text: "Alguns títulos têm prazos mais longos e podem não ser adequados para objetivos de curto prazo." },
+      { type: "benefit", text: "O Tesouro Direto é considerado um investimento seguro, já que é garantido pelo governo federal." },
+    ],
+  },
+  { 
+    name: "Títulos Privados",
+    descricao: "Os títulos privados são emitidos por instituições financeiras e empresas privadas, e podem ser uma opção de investimento de renda fixa. Alguns exemplos de títulos privados são CDBs, LCIs e LCAs.",
+    image: "https://files.certifiquei.com.br/p/uploads/2020/09/T%C3%ADtulos-privados.jpg",
+    caracteristicas: [
+      { type: "lost", text: "Os títulos privados estão sujeitos a riscos de crédito da instituição emissora." },
+      { type: "lost", text: "Em alguns casos, é necessário pagar imposto de renda sobre o rendimento dos títulos." },
+      { type: "benefit", text: "Existem títulos privados com diferentes prazos e rentabilidades, adequados para diferentes objetivos de investimento." },
+      { type: "benefit", text: "Alguns títulos privados contam com a proteção do Fundo Garantidor de Créditos (FGC) para valores de até R$ 250 mil por CPF e por instituição financeira." },
+    ],
+  },
+];
+
+export const benefits = [{type: "vida", value: 1 }, {type: "felicidade", value: 2 }, {type: "coin", value: 400}] as IBeneficios[]
+
 export const niveis = [{ level: "Estagiário", salary: 500 }, { level:"Júnior I", salary: 1320 }, { level: "Júnior II", salary: 1700 }, { level: "Júnior III", salary: 2000 }, { level: "Pleno I", salary: 2600}, { level: "Pleno II", salary: 3000 }, { level: "Pleno III", salary: 4000 }, { level: "Senior I", salary: 6000}, { level: "Senior II", salary: 7500 }, { level: "Senior III", salary: 10000}]
 
 export const wallet = [{ image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
@@ -207,6 +283,28 @@ name: "Investimentos", link: "/credit-card", id: 3, }, { image: "https://www.vis
 name: "Comidas", link: "/credit-card", id: 4, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
 name: "Gastos", link: "/spendings", id: 5, },
 { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Consumiveis", link: "/itens", id: 4, }, { image: gastosPng, 
 name: "Orçamento", link: "/budget", id: 5, }]
 
-export default { gastos, events, niveis, wallet };
+
+export const consumiveis = [
+  { name: "energetico BlueCow", value: -9, benefit: [{ type: "felicidade", value: 9 }], lost: [{ type: "vida", value: -10 }], type: 'comida' },
+  { name: "refrigerante de cola", value: -8, benefit: [{ type: "felicidade", value: 10 }], lost: [{type: "saude", value: -15}], type: 'comida' },
+  { name: "maçã", value: -9, benefit: [{ type: "saude", value: 5 }], lost: [], type: 'comida' },
+  { name: "brownie suspeito", value: -2, benefit: [{ type: "felicidade", value: 3 }], lost: [{ type: "vida", value: -5 }], type: 'comida' },
+  
+  { name: "remédio para dor", value: -30, benefit: [{ type: "vida", value: 25 }], lost: [], type: 'medicamento' },
+  { name: "curativo adesivo", value: -15, benefit: [{ type: "vida", value: 10 }], lost: [], type: 'medicamento' },
+  { name: "soro fisiológico", value: -20, benefit: [{ type: "vida", value: 15 }], lost: [], type: 'medicamento' },
+
+  { name: 'camiseta regata', value: 20, benefit: [{ type: "felicidade", value: 5 }], lost: [], type: 'vestuario'},
+  { name: "calça jeans", value: -100, benefit: [{ type: "felicidade", value: 35 }], lost: [], type: 'vestuario' },
+  { name: "camisa de time", value: -120, benefit: [{ type: "felicidade", value: 40 }], lost: [], type: 'vestuario' },
+  { name: "bermuda", value: -55, benefit: [{ type: "felicidade", value: 25 }], lost: [], type: 'vestuario' },
+
+  { name: "livro de contos", value: -45, benefit: [{ type:"felicidade", value: 25}], lost:[], type: "entretenimento" },
+  { name: "cinema", value: -15, benefit: [{ type:"felicidade", value: 5 }], lost:[], type: "entretenimento" },
+  { name: "parque", value: -30, benefit: [{ type:"felicidade", value: 25 }], lost:[], type: "entretenimento" }
+]
+
+export default { gastos, events, niveis, wallet, consumiveis };
