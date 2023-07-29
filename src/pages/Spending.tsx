@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import style from '../styles/Spending.module.css';
 import data from '../data';
 import ProgressBar from '../componentes/ProgressBar';

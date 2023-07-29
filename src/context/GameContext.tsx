@@ -12,6 +12,14 @@ interface IAction {
     vida: number
   }
 
+  interface IBudget {
+    casa: number,
+    comida: number,
+    vestuario: number,
+    lazer: number,
+    investimento: number,
+  }
+
   interface ComponentProps {
     children: ReactNode;
   }
@@ -47,6 +55,8 @@ const GameContext =  createContext<{
     dispatch: React.Dispatch<IAction>;
     day: number;
     setDay: React.Dispatch<React.SetStateAction<number>>;
+    budget: IBudget;
+    setBudget: React.Dispatch<React.SetStateAction<IBudget>>;
   }>({
     pontos: initialState,
     events: [], // Inicialmente, o array de eventos está vazio
@@ -56,6 +66,8 @@ const GameContext =  createContext<{
     dispatch: () => undefined,
     day: 1,
     setDay: () => undefined,
+    budget: { casa: 0, comida: 0, vestuario: 0, lazer: 0, investimento: 0 },
+    setBudget: () => undefined,
   });
 
 const GameProvider = ({ children }: ComponentProps) => {
@@ -63,9 +75,10 @@ const GameProvider = ({ children }: ComponentProps) => {
   const [events, setEvents] = useState([]  as IEvents[]);
   const [currentEvent, setCurrentEvent] = useState(0);
   const [day, setDay] = useState(1);
+  const [budget, setBudget] = useState({ casa: 0, comida: 0, vestuario: 0, lazer: 0, investimento: 0 });
 
   return (
-    <GameContext.Provider value={{ day, setDay, pontos, dispatch, events, setEvents, currentEvent, setCurrentEvent }}>
+    <GameContext.Provider value={{ budget, setBudget, day, setDay, pontos, dispatch, events, setEvents, currentEvent, setCurrentEvent }}>
       {children}
     </GameContext.Provider>
   );
