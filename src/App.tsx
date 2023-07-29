@@ -18,7 +18,9 @@ function App() {
   {path: "/itens", element: <Consumives />},
   {path: "/budget", element: <Budget />},
   {path: "/spendings", element: <Spending />},
-  {path: "/investiments", element: <Investments />}
+  {path: "/investiments", element: <Investments />},
+  {path: "/credit-card", element: <CreditCard />}
+
 ])
   
   return (

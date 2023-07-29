@@ -24,7 +24,7 @@ function Header() {
           <span> Estagiário </span>
         </p>
         <div className={style.money}>
-          <p>{pontos.coin}</p>
+          <p>{coin}</p>
           <img 
             src={wallet} 
             alt="carteira" 
@@ -33,8 +33,8 @@ function Header() {
           />
         </div>
       </div>
-      <ProgressBar percentage={pontos.vida > 100 ? 100 : pontos.vida} color='#ff0000' name="SAÚDE" />
-      <ProgressBar percentage={pontos.felicidade > 100 ? 100 : pontos.felicidade} color="#ff5555" name="Felicidade" />
+      <ProgressBar percentage={vida > 100 ? 100 : vida} color='#ff0000' name="SAÚDE" />
+      <ProgressBar percentage={felicidade > 100 ? 100 : felicidade} color="#ff5555" name="Felicidade" />
       <span className={style.iconsContainer}>
       </span>
            { isEndGame && <PopUp>
