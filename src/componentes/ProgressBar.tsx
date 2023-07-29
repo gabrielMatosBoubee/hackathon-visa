@@ -1,4 +1,4 @@
-import React from 'react';
+import style from '../styles/Header.module.css';
 
 interface props {
     percentage: number, 
@@ -8,14 +8,13 @@ interface props {
 
 const ProgressBar = ({ percentage, color, name }: props) => {
   return (
-    <div style={{ position: "relative", width: '100%', border: '1px solid #ccc', borderRadius: '8px', fontFamily: 'sans-serif', fontWeight: "700", textTransform: "uppercase" }}>
-    <p style={{position: 'absolute', left: "30%", color: "white" }}>{name}</p>
+    <div className={ style.progressBarWrapper}>
+    <p className={ style.progressBarName }>{name}</p>
       <div
+        className={ style.progressBar }
         style={{
             width: `${percentage}%`,
-            height: '20px',
             backgroundColor: color,
-            borderRadius: '8px',
         }}
       />
     </div>

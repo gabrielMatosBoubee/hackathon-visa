@@ -1,0 +1,94 @@
+.header {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #BFC7D2;
+  height: 15vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header > div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  gap: 1%;
+  height: 50%;
+}
+
+.header > div:nth-of-type(1) > p {
+  text-align: center;
+  display: flex;
+  background-color: #FEFCE3;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.header > div:nth-of-type(1) > p > span {
+  background-color: #FEFCE3;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40%;
+  background-color: #FEFCE3;
+  font-size: 1.5em;
+  gap: 3%;
+}
+
+.headerIcon {
+  width: 24%;
+}
+
+.chronometer {
+  background-color: #FEFCE3;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 45%;
+}
+
+.chronometer > p:nth-of-type(1) {
+  font-size: 2.5em;
+  display: flex;
+}
+
+.chronometer > p > span {
+  font-size: 0.4em;
+}
+
+.chronometer > p:nth-of-type(2) {
+  font-size: 1em;
+}
+
+.progressBarWrapper {
+  position: relative;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; 
+}
+
+.progressBarName {
+  position: absolute;
+  left: 45%;
+  color: black;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.progressBar {
+  height: 3.5vh;
+  border-radius: 8px;
+}

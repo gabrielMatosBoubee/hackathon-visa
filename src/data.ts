@@ -200,11 +200,13 @@ export const events: IEvents[] = [
 export const niveis = [{ level: "Estagiário", salary: 500 }, { level:"Júnior I", salary: 1320 }, { level: "Júnior II", salary: 1700 }, { level: "Júnior III", salary: 2000 }, { level: "Pleno I", salary: 2600}, { level: "Pleno II", salary: 3000 }, { level: "Pleno III", salary: 4000 }, { level: "Senior I", salary: 6000}, { level: "Senior II", salary: 7500 }, { level: "Senior III", salary: 10000}]
 
 export const wallet = [{ image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
-name: "tela principal", link: "/", id: 0, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
-name: "cartão de credito", link: "/credit-card", id: 1, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
-name: "cartão de debito", link: "/credit-card", id: 2, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
-name: "investimentos", link: "/credit-card", id: 3, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Tela principal", link: "/", id: 0, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Cartão de credito", link: "/credit-card", id: 1, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Cartão de debito", link: "/credit-card", id: 2, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Investimentos", link: "/credit-card", id: 3, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
 name: "Comidas", link: "/credit-card", id: 4, }, { image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
-name: "gastos", link: "/spendings", id: 5, }]
+name: "Gastos", link: "/spendings", id: 5, },
+{ image: "https://www.visa.com.br/dam/VCOM/regional/na/canada/pay-with-visa/cards/credit/visa-classic-recto-800x450.jpg", 
+name: "Orçamento", link: "/budget", id: 5, }]
 
 export default { gastos, events, niveis, wallet };
