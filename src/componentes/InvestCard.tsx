@@ -11,7 +11,7 @@ interface IComponentsProps {
   descricao: string;
   caracteristicas: Array<{ type: string; text: string }>;
   benefit: Array<{ percent: number, interval: string}>;
-  loss: Array<{ percent: number, interval: string}>;
+  loss?: Array<{ percent: number, interval: string}>;
 }
 
 interface IAction {
@@ -33,7 +33,7 @@ interface IAction {
     timeInvested: 0
   };
 
-function InvestCard({ name, image, descricao, caracteristicas = [], benefit, loss }: IComponentsProps) {
+function InvestCard({ name, image, descricao, caracteristicas = [], benefit }: IComponentsProps) {
     const {dispatch: dispatchGlobal, pontos: { coin }, day} = useContext(GameContext);
 
     const reducer =  (state: INicialState, action: IAction) => {
