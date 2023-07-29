@@ -6,6 +6,7 @@ import { GameProvider } from './context/GameContext';
 import Spending from './pages/Spending';
 import Budget from './pages/Budget';
 import Investments from './pages/Investiments';
+import CreditCard from './pages/CreditCard';
 import Consumives from './pages/Consumives';
 
 function App() {
@@ -19,9 +20,7 @@ function App() {
   {path: "/spendings", element: <Spending />},
   {path: "/investiments", element: <Investments />}
 ])
-
-
-
+  
   return (
     <GameProvider>
      <RouterProvider router={router}/>

@@ -19,7 +19,6 @@ type TLostBenefit = {
 	value: number;
 }
 
-
 function Consumives() {
 	const [filtered, setFiltered] = useState(consumiveis);
 	const { dispatch } = useContext(GameContext);

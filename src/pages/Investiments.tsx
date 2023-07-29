@@ -1,4 +1,3 @@
-import React from 'react';
 import InvestCard from "../componentes/InvestCard";
 import { investiments } from "../data";
 import styles from '../styles/Investiments.module.css';

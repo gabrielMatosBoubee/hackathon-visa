@@ -20,3 +20,8 @@ export interface IGastos {
   valorEstipulado: number,
   valueSpending: number,
 }
+
+export interface IBeneficios {
+  type: "vida" | "felicidade" | "coin"
+  value: number
+}
