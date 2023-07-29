@@ -62,7 +62,7 @@ function Main() {
       <Header />
       <main className={style.main} >
         { showPopUp ?
-        <Budget />  : null }
+        <div> <p> Chegou dia primeiro! Está na hora de se planejar para o mês que está chegando! </p></div>  : null }
           <img src={player} alt="Seu personagem" />
           {isOpen && <PopUp>
             <p style={{fontSize: "1.5rem", textAlign: "start"}}>{events[currentEvent].text}</p>
